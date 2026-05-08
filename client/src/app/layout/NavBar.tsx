@@ -1,11 +1,13 @@
 import { Search, ShoppingCart, User, Compass, Handbag, ShieldQuestionMark, Heart, Flag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useFetchCartQuery } from '../../features/cart/cartApi';
+import UserMenu from './UserMenu';
+import { useUserInfoQuery } from '../../features/account/accountApi';
 
 export default function NavBar() {
+    const { data: user} = useUserInfoQuery();
     const { data: cart } = useFetchCartQuery();
     const itemCount = cart?.items.reduce((sum, item) => sum + item.quantity, 0) || 0;
-
 
     return (
         <div className="flex h-16 bg-white border-b-1 border-grey-100">
@@ -17,13 +19,13 @@ export default function NavBar() {
                 <div>
                     <div className="hidden md:flex gap-8 font-bold text-gray-700">
 
-                        <Link to="/whatnews"
+                        <Link to="whatnews"
                             className="flex items-center gap-2">
                             <Compass className="text-red-600" size={18} />
                             <div className="hover:text-red-600 transition">Explore</div>
                         </Link>
 
-                        <Link to="/catalog" className="flex items-center gap-2">
+                        <Link to="catalog" className="flex items-center gap-2">
                             <Handbag className="text-red-600" size={18} />
                             <div className="hover:text-red-600 transition">Shop</div>
                         </Link>
@@ -42,15 +44,23 @@ export default function NavBar() {
                     <div className="group flex h-8 w-8 items-center justify-center rounded-full bg-gray-100">
                         <Heart className="text-gray-600 group-hover:text-red-600" size={20} />
                     </div>
-                    <Link to="/cart"
+
+                    <Link to="cart"
                         className="group flex h-8 w-8 items-center justify-center rounded-full bg-gray-100">
                         <div className="text-lg">{itemCount}</div>
                         <ShoppingCart className="group-hover:text-red-600 transition" size={20} />
                     </Link>
-                    <div className="group flex h-8 w-40 items-center justify-center gap-2 rounded-full bg-gray-100">
-                        <User className="group-hover:text-red-600 transition" size={20} />
-                        <span className="group-hover:text-red-600 transition text-sm font-bold">Log In / Sign Up</span>
-                    </div>
+
+                    {user ? (
+                        <UserMenu user={user}></UserMenu>
+                    ) : (
+                        <Link to="login"
+                            className="group flex h-8 w-40 items-center justify-center gap-2 rounded-full bg-gray-100">
+                            <User className="group-hover:text-red-600 transition" size={20} />
+                            <span className="group-hover:text-red-600 transition text-sm font-bold">Log In / Sign Up</span>
+                        </Link> 
+                    )}
+
                     <Flag className="hover:text-red-600 transition" size={20} />
                 </div>
             </div>

@@ -17,6 +17,9 @@ import ServerError from "../errors/ServerError";
 import NotFound from "../errors/NotFound";
 import CartPage from "../../features/cart/cartPage";
 import CheckOutPage from "../../features/checkOut/CheckOutPage";
+import LoginForm from "../../features/account/LoginForm";
+import RegisterForm from "../../features/account/RegisterForm";
+import RequireAuth from "./RequireAuth";
 
 export const router = createBrowserRouter([
     {
@@ -24,26 +27,33 @@ export const router = createBrowserRouter([
         element: <App />,
         children: [
             { path: '', element: <HomePage /> },
-            { path: '/about', element: <AboutPage /> },
-            { path: '/privacy', element: <Privacy /> },
-            { path: '/orders', element: <Orders /> },
-            { path: '/shop', element: <Shop /> },
-            { path: '/contact', element: <Contact /> },
-            { path: '/cart', element: <CartPage /> },
-            { path: '/feedback', element: <Feedback /> },
-            { path: '/term-of-use', element: <Term /> },
+            { path: 'about', element: <AboutPage /> },
+            { path: 'privacy', element: <Privacy /> },
+            { path: 'orders', element: <Orders /> },
+            { path: 'shop', element: <Shop /> },
+            { path: 'contact', element: <Contact /> },
+            { path: 'cart', element: <CartPage /> },
+            { path: 'feedback', element: <Feedback /> },
+            { path: 'term-of-use', element: <Term /> },
             //{ path: '/whatnews', element: <WhatNews /> },
             //{ path: '/news/:id', element: <NewsDetails /> },
-            { path: '/server-error', element: <ServerError /> },
-            { path: '/not-found', element: <NotFound /> },
-            { path: '/checkout', element: <CheckOutPage /> },
+            { path: 'server-error', element: <ServerError /> },
+            { path: 'not-found', element: <NotFound /> },
+            { path: 'login', element: <LoginForm /> },
+            { path: 'register', element: <RegisterForm /> },
             { path: '*', element: <Navigate replace to='/not-found'/> },
 
             {
                 element: <ShopLayout />,
                 children: [
-                    { path: '/catalog', element: <Catalog /> },
-                    { path: '/catalog/:id', element: <ProductDetails /> },
+                    { path: 'catalog', element: <Catalog /> },
+                    { path: 'catalog/:id', element: <ProductDetails /> },
+                ]
+            },
+            {
+                element: <RequireAuth />,
+                children: [
+                    { path: 'checkout', element: <CheckOutPage /> },
                 ]
             }
         ]

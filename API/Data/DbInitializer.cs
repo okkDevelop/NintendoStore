@@ -1,24 +1,49 @@
 ﻿using API.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace API.Data
 {
     public class DbInitializer
     {
-        public static void InitDb(WebApplication app)
+        public static async Task InitDb(WebApplication app)
         {
             using var scope = app.Services.CreateScope();
 
             var context = scope.ServiceProvider.GetRequiredService<StoreContext>()
                 ?? throw new InvalidOperationException("Failed to retrieve store context");
 
-            SeedData(context);
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>()
+                ?? throw new InvalidOperationException("Failed to retrieve user manager");
+
+            await SeedData(context, userManager);
         }
 
-        private static void SeedData(StoreContext context)
+        private static async Task SeedData(StoreContext context, UserManager<User> userManager)
         {
             context.Database.Migrate();
+
+            if (!userManager.Users.Any())
+            {
+                var user = new User
+                {
+                    UserName = "member@gmail.com",
+                    Email = "member@gmail.com"
+                };
+
+                await userManager.CreateAsync(user, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(user, "Member");
+
+                var admin = new User
+                {
+                    UserName = "admin@gmail.com",
+                    Email = "admin@gmail.com"
+                };
+
+                await userManager.CreateAsync(admin, "Pa$$w0rd");
+                await userManager.AddToRolesAsync(admin, ["Member", "Admin"]);
+            }
 
             if (!context.Products.Any())
             {
