@@ -7,6 +7,8 @@ namespace API.Entities
         public int Id { get; set; }
         public required string CartId { get; set; }
         public List<CartItem> Items { get; set; } = [];
+        public string? ClientSecret { get; set; }
+        public string? PaymentIntentId { get; set; }
 
         public void AddItem(Product product, int quantity)
         {

@@ -15,15 +15,21 @@ export default function NavBar() {
                 <img className="h-full w-full" src="https://1000logos.net/wp-content/uploads/2017/03/Nintendo-Logo-1983.png"/>
             </Link>
 
+            {/*explore drop down panel*/}
+            <div className="">
+            </div>
+
             <div className="flex flex-1 items-center justify-between bg-white px-8">
                 <div>
                     <div className="hidden md:flex gap-8 font-bold text-gray-700">
 
-                        <Link to="whatnews"
-                            className="flex items-center gap-2">
+                        <button
+                            className="overflow-y-auto inline-flex items-center justify-center font-medium leading-5 px-4 py-2.5"
+                            type="button"
+                            aria-controls="drawer-top-explore">
                             <Compass className="text-red-600" size={18} />
                             <div className="hover:text-red-600 transition">Explore</div>
-                        </Link>
+                        </button>
 
                         <Link to="catalog" className="flex items-center gap-2">
                             <Handbag className="text-red-600" size={18} />

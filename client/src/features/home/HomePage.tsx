@@ -23,21 +23,6 @@ const heroContents = [
     }
 ]
 
-const featuresContents = [
-    {
-        img: 'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/feature-banner/2026/Tomodachi%20Life:%20Living%20the%20Dream/Tomodachi-Life-Hero',
-        description: 'Play the free demo today!'
-    },
-    {
-        img: 'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/My%20Nintendo%20Store/EN-US/MNS%20HOME/General/Talking%20Flower%20PMP/keyart',
-        description: 'Add some whimsy to your day with Taling Flower'
-    },
-    {
-        img: 'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/articles/2026/pokemon-firered-version-and-pokemon-leafgreen-version-are-coming-to-nintendo-switch-in-multiple-languages/2250x1266_PRG_EN',
-        description: 'Pokemon FireRed Version & Pokemon LeafGreen Version'
-    }
-]
-
 const characterContents = [
     {
         title: 'Super Mario',
@@ -143,16 +128,16 @@ export default function HomePage() {
             <div className="mx-10 border-b-[1px] border-gray-200"></div>
 
             {/* ===== FEATURED PANEL AREA ===== */}
-            <div className="h-100 w-full bg-white p-5">
-                <div className="h-10 w-full font-bold text-black text-3xl">Features</div>
+            <div className="w-[100%] max-w-[1150px] h-auto mx-auto flex flex-col justify-center gap-8 py-10">
+                <h2 className="w-full text-3xl font-bold text-gray-700">Features</h2>
                 <div className="flex items-center justify-center gap-4">
-                    {featuresContents.map((content, index) => (
-                        <FeaturesCard
-                            key={index}
-                            image={content.img}
-                            description={content.description}
-                        />
-                    ))}
+                    {/*{featuresContents.map((content, index) => (*/}
+                    {/*    <FeaturesCard*/}
+                    {/*        key={index}*/}
+                    {/*        image={content.img}*/}
+                    {/*        description={content.description}*/}
+                    {/*    />*/}
+                    {/*))}*/}
                 </div>
             </div>
             {/* ^^^^^ FEATURED PANEL AREA ^^^^^ */}
@@ -160,15 +145,20 @@ export default function HomePage() {
             <div className="mx-10 border-b-[1px] border-gray-200"></div>
 
             {/* ===== NINTENDO TODAY PANEL AREA ===== */}
-            {/*<div className="w-[90%] max-w-[1200px] mx-auto flex flex-col justify-center gap-8 h-115 w-290 bg-white">*/}
-            <div className="w-[90%] max-w-[1200px] h-auto mx-auto flex flex-col justify-center gap-8 bg-white py-10">
-                <h2 className="w-full text-3xl font-bold text-gray-600">Nintendo Today!</h2>
-                <img className="h-auto w-full rounded-xl cursor-pointer" src='https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_1200/ncom/en_US/homepage%20assets/Nintendo%20Today/1880x277_v02' />
+            <div className="w-[100%] max-w-[1150px] h-auto mx-auto flex flex-col justify-center gap-8 py-10">
+                <h2 className="w-full text-3xl font-bold text-gray-700">Nintendo Today!</h2>
+                <img className="h-auto w-full rounded-xl cursor-pointer"
+                    src='https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_1200/ncom/en_US/homepage%20assets/Nintendo%20Today/1880x277_v02'
+                />
                 <div className="flex flex-col lg:flex-row items-left lg:items-center justify-left w-full gap-7">
-                    <div className="font-bold text-xl text-gray-600">Your movie companion: Nintendo Today!</div>
-                    <div className="flex w-full h-15 lg:w-35 lg:h-12 items-center justify-center rounded-lg bg-red-600 text-white font-bold hover:bg-red-800 hover:scale-110 transition-[transform, background-color] duration-500 ease-out cursor-pointer">Learn more</div>
+                    <p className="font-bold text-xl text-gray-600">Your movie companion: Nintendo Today!</p>
+                    <button
+                        className="w-full h-15 lg:w-35 lg:h-12 rounded-lg bg-red-600 text-white text-lg font-bold 
+                        hover:bg-red-800 hover:scale-110 transition-[transform, background-color] duration-500 ease-out cursor-pointer">
+                        Learn more
+                    </button>
                 </div>
-                <p className="w-full text-xs text-black">Nintendo Account, compatible smart device and persistent internet connection required. Data charges may apply. Requires iOS 16.0 or later. Requires Android 10.0 or later.</p>
+                <p className="w-full text-xs text-gray-800">Nintendo Account, compatible smart device and persistent internet connection required. Data charges may apply. Requires iOS 16.0 or later. Requires Android 10.0 or later.</p>
             </div>
             {/* ^^^^^ NINTENDO TODAY PANEL AREA ^^^^^ */}
 

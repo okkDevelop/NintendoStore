@@ -1,12 +1,14 @@
 import { useFetchCartQuery } from "../../../features/cart/cartApi";
 import { currencyFormat } from "../../../lib/util";
 import type { Item } from "../../models/cart";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function OrderSummary() {
     const { data: cart } = useFetchCartQuery();
     const subtotal = cart?.items.reduce((sum: number, item: Item) => sum + item.price * item.quantity, 0) ?? 0;
     const estimatedTax = subtotal * 6 / 100;
+
+    const location = useLocation();
 
     return (
         <div className="w-100 h-100 flex flex-col items-center justify-between bg-gray-200 rounded-xl p-2">
@@ -33,11 +35,13 @@ export default function OrderSummary() {
                 <p>{currencyFormat(subtotal + estimatedTax)}</p>
             </div>
 
-            <Link
-                to="/checkout"
-                className="w-full h-20 text-2xl text-white bg-red-600 font-bold flex flex-row items-center justify-between cursor-pointer">
-                To secure Check out
-            </Link>
+            {!location.pathname.includes('checkout') &&
+                <Link
+                    to="/checkout"
+                    className="w-full h-20 text-2xl text-white bg-red-600 font-bold flex flex-row items-center justify-between cursor-pointer">
+                    To secure Check out
+                </Link>
+            }
         </div>
     )
 }
