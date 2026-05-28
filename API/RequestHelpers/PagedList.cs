@@ -4,8 +4,9 @@ namespace API.RequestHelpers
 {
     public class PagedList<T> : List<T>
     {
-        private const int MAXSIZEPERLOAD = 40;
+        private const int MAXSIZEPERLOAD = 9;
         public PaginationMetadata Metadata { get; set; }
+
         public PagedList(List<T> items, int loadedIndex) 
         {
             Metadata = new PaginationMetadata

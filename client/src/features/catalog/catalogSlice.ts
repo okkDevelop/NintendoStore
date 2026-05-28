@@ -21,7 +21,13 @@ export const catalogSlice = createSlice({
             state.loadedIndex = 0;
         },
         setTypes(state, action) {
-            state.types = action.payload;
+            const selectedType = action.payload;
+
+            if (state.types.includes(selectedType)) 
+                state.types = state.types.filter(t => t !== selectedType);
+            else 
+                state.types.push(selectedType);
+
             state.loadedIndex = 0;
         },
         setLoadedIndex(state, action) {

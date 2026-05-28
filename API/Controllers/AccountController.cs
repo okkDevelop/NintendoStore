@@ -12,15 +12,20 @@ namespace API.Controllers
     public class AccountController(SignInManager<User> signInManager) : BaseApiController
     {
         [HttpPost("register")]
-        public async Task<ActionResult> RegisterUser(RegisterDto resgiterDto)
+        public async Task<ActionResult> RegisterUser(RegisterDto registerDto)
         {
             var user = new User
             {
-                UserName = resgiterDto.Email,
-                Email = resgiterDto.Email,
+                UserName = registerDto.Email,
+                Email = registerDto.Email,
+                UserInfo = new UserInfo { 
+                    NickName = registerDto.NickName,
+                    BirthDay = registerDto.BirthDay,
+                    Gender = registerDto.Gender
+                }
             };
 
-            var result = await signInManager.UserManager.CreateAsync(user, resgiterDto.Password);
+            var result = await signInManager.UserManager.CreateAsync(user, registerDto.Password);
 
             if (!result.Succeeded)
             {
@@ -67,39 +72,39 @@ namespace API.Controllers
             return NoContent();
         }
 
-        [HttpPost("address")]
-        public async Task<ActionResult> CreateOrUpdateUserAddress(Address address)
-        {
-            var user = await signInManager.UserManager.Users
-                .Include(a => a.Address)
-                .FirstOrDefaultAsync(u => u.UserName == User.Identity!.Name);
+        //[HttpPost("address")]
+        //public async Task<ActionResult> CreateOrUpdateUserAddress(Address address)
+        //{
+        //    var user = await signInManager.UserManager.Users
+        //        .Include(a => a.Address)
+        //        .FirstOrDefaultAsync(u => u.UserName == User.Identity!.Name);
 
-            if (user == null)
-                return Unauthorized();
+        //    if (user == null)
+        //        return Unauthorized();
 
-            user.Address = address;
+        //    user.Address = address;
 
-            var result = await signInManager.UserManager.UpdateAsync(user);
+        //    var result = await signInManager.UserManager.UpdateAsync(user);
 
-            if (!result.Succeeded)
-                return BadRequest("Problem updating user address");
+        //    if (!result.Succeeded)
+        //        return BadRequest("Problem updating user address");
 
-            return Ok(user.Address);
-        }
+        //    return Ok(user.Address);
+        //}
 
-        [Authorize]
-        [HttpGet("address")]
-        public async Task<ActionResult<Address>> GetUserAddress()
-        {
-            var address = await signInManager.UserManager.Users
-                .Where(u => u.UserName == User.Identity!.Name)
-                .Select(u => u.Address)
-                .FirstOrDefaultAsync();
+        //[Authorize]
+        //[HttpGet("address")]
+        //public async Task<ActionResult<Address>> GetUserAddress()
+        //{
+        //    var address = await signInManager.UserManager.Users
+        //        .Where(u => u.UserName == User.Identity!.Name)
+        //        .Select(u => u.Address)
+        //        .FirstOrDefaultAsync();
 
-            if (address == null)
-                return NoContent();
+        //    if (address == null)
+        //        return NoContent();
 
-            return address;
-        }
+        //    return address;
+        //}
     }
 }
