@@ -56,6 +56,26 @@ namespace API.Controllers
                 BadRequest("Problem updating basket");
         }
 
+        [HttpDelete("clear")]
+        public async Task<ActionResult> RemoveCart()
+        {
+            var cart = await RetrieveCart();
+
+            if (cart == null)
+                return BadRequest("problem getting the cart");
+
+            cart.RemoveCart();
+
+            Response.Cookies.Delete("cartId");
+
+            var result = await context.SaveChangesAsync() > 0;
+
+            if (!result)
+                return BadRequest("Problem deleting the cart");
+
+            return NoContent();
+        }
+
         private Cart CreateCart() 
         {
             var cartId = Guid.NewGuid().ToString();

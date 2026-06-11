@@ -1,4 +1,5 @@
 ﻿using API.Entities;
+using Microsoft.Extensions.Options;
 using Stripe;
 
 namespace API.Services
@@ -17,16 +18,16 @@ namespace API.Services
 
             if (string.IsNullOrEmpty(cart.PaymentIntentId))
             {
-                var options = new PaymentIntentCreateOptions
+                var createOptions = new PaymentIntentCreateOptions
                 {
                     Amount = amountInSen,
                     Currency = "MYR",
                     PaymentMethodTypes = ["card"]
                 };
 
-                intent = await service.CreateAsync(options);
+                intent = await service.CreateAsync(createOptions);
             }
-            else
+            else 
             {
                 var options = new PaymentIntentUpdateOptions
                 {

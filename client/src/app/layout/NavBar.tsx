@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, User, Compass, Handbag, ShieldQuestionMark, Heart, Flag, X, Check, NotepadText, ExternalLink, BookDown, Gift, GraduationCap, MessageSquareText, Smartphone, Star, BrickWall, GamepadDirectional, Gamepad2, PersonStanding, Shirt, Tag, Cog, SquareM, SquareParking, UserKey, Wrench } from 'lucide-react';
+import { Search, ShoppingCart, User, Compass, Handbag, ShieldQuestionMark, Heart, Flag, GraduationCap, MessageSquareText, Smartphone, Star, BrickWall, GamepadDirectional, Gamepad2, PersonStanding, Shirt, Tag, Cog, SquareM, SquareParking, UserKey, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useFetchCartQuery } from '../../features/cart/cartApi';
 import UserMenu from './UserMenu';
@@ -84,141 +84,34 @@ export default function NavBar() {
                             <ShoppingCart className="fill-gray-600" size={20} />
                         </Link>
 
-                        {user ? (
-                            <UserMenu user={user}></UserMenu>
-                        ) : (
-                            <button
-                                onClick={() => setLoginPanelOpen(true)}
-                                type="button"
-                                className="group flex h-8 w-40 items-center justify-center gap-2 rounded-full
-                                        cursor-pointer
-                                        outline outline-1 outline-red-500"
-                            >
-                                <User className="text-red-600" size={20} />
-                                <span className="text-red-600 text-sm font-bold">Log In / Sign Up</span>
-                            </button>
-                        )}
+                        <button
+                            onClick={() => setLoginPanelOpen(true)}
+                            type="button"
+                            className={`group flex h-8 w-40 rounded-full cursor-pointer
+                                flex flex-row items-center justify-center gap-2 
+                                text-sm font-bold
+                            ${user ? "text-gray-700 hover:text-red-600 transition duration-300" :
+                                    "text-red-600 outline outline-1 outline-red-500"}
+                            `}
+                        >
+                            {user ? user.email : 
+                                <>
+                                    <User size={20} />
+                                    <span>Log In / Sign Up</span>
+                                </>
+                            }
+                        </button>
 
                         <Flag className="hover:text-red-600 transition" size={20} />
                     </div>
                 </div>
             </div>
 
-            <div
-                className={`flex flex-col gap-3 fixed top-0 right-0 z-60 h-screen p-4 overflow-y-auto transition-transform bg-gray-100 w-80 cursor-default
-                            ${isLoginPanelOpen ? 'translate-x-0' : 'translate-x-full'}`}
-            >
-                <div className="flex items-center justify-between mb-4">
-                    <h5 className="text-xl font-bold text-gray-700">Log in/ Sign up</h5>
-                    <button
-                        onClick={() => setLoginPanelOpen(false)}
-                        className="text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm p-1.5 inline-flex items-center cursor-pointer"
-                    >
-                        <X size={20}></X>
-                    </button>
-                </div>
-                <div className="w-full h-auto flex flex-col bg-white rounded-xl gap-1 p-5">
-                    <img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/Dev/Global%20Navigation/unauthd-asset.png" />
-                    <h2 className="text-xl font-bold text-gray-700">With a free account, you can</h2>
-                    <div className="flex flex-row items-center justify-left gap-2 font-bold text-gray-700">
-                        <Check size={20}></Check>
-                        <p className="text-sm">Shop online</p>
-                    </div>
-                    <div className="flex flex-row items-center justify-left gap-2 font-bold text-gray-700">
-                        <Check size={20}></Check>
-                        <p className="text-sm">Earn My Nintendo points</p>
-                    </div>
-                    <div className="flex flex-row items-center justify-left gap-2 font-bold text-gray-700">
-                        <Check size={20}></Check>
-                        <p className="text-sm">Save a Wish List</p>
-                    </div>
-                </div>
-
-                <Link
-                    to="/login-main"
-                    onClick={() => {
-                        window.scrollTo(0, 0);
-                        setLoginPanelOpen(false);
-                    }}
-                    className="w-full h-auto rounded-lg bg-red-600
-                                    text-xl text-white font-bold text-center py-2"
-                > Log in
-                </Link>
-                <Link
-                    to="/register"
-                    onClick={() => {
-                        window.scrollTo(0, 0);
-                        setLoginPanelOpen(false);
-                    }}
-                    className="w-full h-auto rounded-lg bg-white
-                                    text-xl text-red-500 font-bold text-center py-2
-                                    outline outline-1 outline-red-500"
-                > Sign up
-                </Link>
-
-                <div
-                    className="w-full h-auto rounded-lg bg-white px-5 py-2
-                                    flex flex-row items-center justify-left gap-2
-                                    text-lg text-gray-700 font-semibold text-center
-                                    outline outline-gray-300"
-                >
-                    <NotepadText className="text-red-500" size={20}></NotepadText>
-                    <p>Order status</p>
-                </div>
-
-                <div className="w-full h-auto bg-white rounded-lg px-5 py-2
-                                    flex flex-col gap-2
-                                    outline outline-gray-300"
-                >
-                    <div
-                        className="
-                                    flex flex-row items-center justify-between gap-2
-                                    text-lg text-gray-700 font-semibold text-center"
-                    >
-                        <div className="flex flex-row items-center justify-center gap-2">
-                            <BookDown className="text-red-500" size={20}></BookDown>
-                            <p>Virtual Game Cards</p>
-                        </div>
-                        <ExternalLink size={20}></ExternalLink>
-                    </div>
-
-                    <div
-                        className="
-                                    flex flex-row items-center justify-between gap-2
-                                    text-lg text-gray-700 font-semibold text-center"
-                    >
-                        <div className="flex flex-row items-center justify-center gap-2">
-                            <Gift className="text-red-500" size={20}></Gift>
-                            <p>Redeem code</p>
-                        </div>
-                        <ExternalLink size={20}></ExternalLink>
-                    </div>
-
-                    <div
-                        className="
-                                    flex flex-row items-center justify-between gap-2
-                                    text-lg text-gray-700 font-semibold text-center"
-                    >
-                        <div className="flex flex-row items-center justify-center gap-2">
-                            <GraduationCap className="text-red-500" size={20}></GraduationCap>
-                            <p>My Nintendo</p>
-                        </div>
-                        <ExternalLink size={20}></ExternalLink>
-                    </div>
-
-                    <div
-                        className="
-                                    flex flex-row items-center justify-between gap-2
-                                    text-lg text-gray-700 font-semibold text-center"
-                    >
-                        <div className="flex flex-row items-center justify-center gap-2">
-                            <User className="text-red-500" size={20}></User>
-                            <p className="text-left">Nintendo Account Overview</p>
-                        </div>
-                        <ExternalLink size={20}></ExternalLink>
-                    </div>
-                </div>
-            </div>
+            <UserMenu
+                user={user}
+                isPanelOpen={isLoginPanelOpen}
+                setPanelOpen={setLoginPanelOpen}
+            />
 
             {/*explore panel*/}
             <div

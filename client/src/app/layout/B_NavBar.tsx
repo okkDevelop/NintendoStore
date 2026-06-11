@@ -10,7 +10,7 @@ const midLinks = [
 
 export default function B_NavBar() {
     return (
-        <div className="w-full h-auto flex flex-col">
+        <div className="w-full h-auto flex flex-col items-center justify-center gap-10">
             {/*red nintendo bar*/}
             <div className="w-full h-40 bg-red-600
                     flex item-center justify-center"
@@ -18,121 +18,304 @@ export default function B_NavBar() {
                 <img src="https://1000logos.net/wp-content/uploads/2017/03/Nintendo-Logo-1983.png" />
             </div>
 
-            {/*nagivation bar*/}
-            <div className="flex flex-row justify-between h-auto w-full px-4 py-10">
-
-                <div className="w-auto max-h-70 px-5 cursor-pointer
-                        flex flex-col items-left justify-top gap-3
-                        font-bold text-gray-700
-                        border-l border-gray-200"
+            <div className="w-full max-w-370 h-auto grid grid-cols-4 gap-y-10 px-4">
+                <div className="w-full h-75 px-5
+                        flex flex-col gap-5
+                        border-l border-gray-300"
                 >
-                    <button className="text-left hover:underline underline-red-700">AboutNintendo</button>
-                    <div className="w-auto flex flex-col gap-1">
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Careers</button>
-                        <button className="w-auto text-left font-bold text-red-500 hover:underline cursor-pointer">Corporate Social Responsibility</button>
+                    <span className="text-gray-600 font-bold text-lg cursor-pointer
+                            hover:underline hover:underline-offset-4 transition duration-2
+                            decoration-red-700 decoration-2"
+                    >
+                        About Nintendo
+                    </span>
+                    <div className="flex flex-col gap-2">
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Careers
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Corporate Social Responsibility
+                        </span>
                     </div>
                 </div>
 
-                <div className="w-auto min-w-10 max-h-70 px-5 cursor-pointer
-                        flex flex-col items-left justify-top gap-3
-                        font-bold text-gray-700
-                        border-l border-gray-200"
+                <div className="w-full h-75 px-5
+                        flex flex-col gap-5
+                        border-l border-gray-300"
                 >
-                    <button className="text-left hover:underline underline-red-700">Shop</button>
-                    <div className="flex flex-col gap-1">
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Games</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Hardware</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Mechandise</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Sales and Deals</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Exclusives</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Nintendo Switch Online</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Nintendo Switch US</button>
+                    <Link
+                        to="/shop"
+                        className="text-gray-600 font-bold text-lg cursor-pointer
+                            hover:underline hover:underline-offset-4 transition duration-2
+                            decoration-red-700 decoration-2"
+                    >
+                        Shop
+                    </Link>
+                    <div className="flex flex-col gap-2">
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Games
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Hardware
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Merchandise
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Sales and deals
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Exclusives
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Nintendo Switch Online
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Nintendo retail locations
+                        </span>
                     </div>
                 </div>
 
-                <div className="w-auto min-w-10 max-h-70 px-5 cursor-pointer
-                        flex flex-col items-left justify-top gap-3
-                        font-bold text-gray-700
-                        border-l border-gray-200"
+                <div className="w-full h-75 px-5
+                        flex flex-col gap-5
+                        border-l border-gray-300"
                 >
-                    <button className="text-left hover:underline underline-red-700">Orders</button>
-                    <div className="flex flex-col gap-1">
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Order details</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Shipping info</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Refunds and returns</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">FAQ</button>
+                    <span className="text-gray-600 font-bold text-lg cursor-pointer
+                            hover:underline hover:underline-offset-4 transition duration-2
+                            decoration-red-700 decoration-2"
+                    >
+                        Orders
+                    </span>
+                    <div className="flex flex-col gap-2">
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Order details
+                        </span>
+
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Shipping info
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Refunds and returns
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            FAQ
+                        </span>
                     </div>
                 </div>
 
-                <div className="w-auto min-w-10 max-h-70 px-5 cursor-pointer
-                        flex flex-col items-left justify-top gap-3
-                        font-bold text-gray-700
-                        border-l border-gray-200"
+
+                <div className="w-full h-75 px-5
+                        flex flex-col gap-5
+                        border-l border-gray-300"
                 >
-                    <button className="text-left hover:underline underline-red-700">Support</button>
-                    <div className="flex flex-col gap-1">
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Nintendo Switch 2</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Nintendo Switch</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Nintendo Account</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">App and other products</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Other systems</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Service Center</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Nintendo product recycling</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Warranty</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Licensed product information</button>
+                    <span className="text-gray-600 font-bold text-lg cursor-pointer
+                            hover:underline hover:underline-offset-4 transition duration-2
+                            decoration-red-700 decoration-2"
+                    >
+                        Support
+                    </span>
+                    <div className="flex flex-col gap-2">
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Nintendo Switch 2
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Nintendo Switch
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Nintendo Account
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Apps and other products
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Service center
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Nintendo product recycling
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Warranty
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Licensed product information
+                        </span>
                     </div>
                 </div>
 
-                <div className="w-auto min-w-10 max-h-70 px-5 cursor-pointer
-                        flex flex-col items-left justify-top gap-3
-                        font-bold text-gray-700
-                        border-l border-gray-200"
+                <div className="w-full h-75 px-5
+                        flex flex-col gap-5
+                        border-l border-gray-300"
                 >
-                    <button className="text-left hover:underline underline-red-700">Parent</button>
-                    <div className="flex flex-col gap-1">
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Info for parents</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Parental controls</button>
+                    <span className="text-gray-600 font-bold text-lg cursor-pointer
+                            hover:underline hover:underline-offset-4 transition duration-2
+                            decoration-red-700 decoration-2"
+                    >
+                        Parents
+                    </span>
+                    <div className="flex flex-col gap-2">
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Info for parents
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Parental controls
+                        </span>
                     </div>
                 </div>
 
-                <div className="w-auto min-w-10 max-h-70 px-5 cursor-pointer
-                        flex flex-col items-left justify-top gap-3
-                        font-bold text-gray-700
-                        border-l border-gray-200"
+                <div className="w-full h-75 px-5
+                        flex flex-col gap-5
+                        border-l border-gray-300"
                 >
-                    <button className="text-left hover:underline underline-red-700">Privacy</button>
-                    <div className="flex flex-col gap-1">
-                        <Link to={"/privacy"}
-                            onClick={() => window.scrollTo(0, 0)}
-                            className="text-left font-bold text-red-500 hover:underline cursor-pointer">
+                    <Link
+                        to="/privacy"
+                        className="text-gray-600 font-bold text-lg cursor-pointer
+                            hover:underline hover:underline-offset-4 transition duration-2
+                            decoration-red-700 decoration-2"
+                    >
+                        Privacy
+                    </Link>
+                    <div className="flex flex-col gap-2">
+                        <Link
+                            to="/privacy"
+                            className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
                             Privacy policy
                         </Link>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Cookies and interst-based ads</button>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Cookies and interest-based ads
+                        </span>
                     </div>
                 </div>
 
-                <div className="w-auto min-w-10 max-h-70 px-5 cursor-pointer
-                        flex flex-col items-left justify-top gap-3
-                        font-bold text-gray-700
-                        border-l border-gray-200"
+                <div className="w-full h-75 px-5
+                        flex flex-col gap-5
+                        border-l border-gray-300"
                 >
-                    <button className="text-left hover:underline underline-red-700">Community</button>
-                    <div className="flex flex-col gap-1">
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Community guidelines</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Online safety</button>
+                    <span className="text-gray-600 font-bold text-lg cursor-pointer
+                            hover:underline hover:underline-offset-4 transition duration-2
+                            decoration-red-700 decoration-2"
+                    >
+                        Community
+                    </span>
+                    <div className="flex flex-col gap-2">
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Community guidelines
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Online safety
+                        </span>
                     </div>
                 </div>
 
-                <div className="w-auto min-w-10 max-h-70 px-5 cursor-pointer
-                        flex flex-col items-left justify-top gap-3
-                        font-bold text-gray-700
-                        border-l border-gray-200"
+                <div className="w-full h-75 px-5
+                        flex flex-col gap-5
+                        border-l border-gray-300"
                 >
-                    <button className="text-left hover:underline underline-red-700">Documents and policies</button>
-                    <div className="flex flex-col gap-1">
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Health and safety precautions</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Wireless regulatory info</button>
-                        <button className="text-left font-bold text-red-500 hover:underline cursor-pointer">Supply chain transparency</button>
+                    <span className="text-gray-600 font-bold text-lg cursor-pointer
+                            hover:underline hover:underline-offset-4 transition duration-2
+                            decoration-red-700 decoration-2"
+                    >
+                        Documents and policies
+                    </span>
+                    <div className="flex flex-col gap-2">
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Health and safety precautions
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Wireless regulatory info
+                        </span>
+                        <span className="text-red-500 font-bold cursor-pointer
+                                hover:text-red-700 hover:underline hover:underline-offset-4 transition duration-300
+                                decoration-red-700 decoration-2"
+                        >
+                            Supply chain transparency
+                        </span>
                     </div>
                 </div>
             </div>

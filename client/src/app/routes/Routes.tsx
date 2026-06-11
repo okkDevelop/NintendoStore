@@ -6,7 +6,7 @@ import AboutPage from "../../features/about/AboutPage";
 import Privacy from "../../features/privacy/Privacy";
 import Orders from "../../features/orders/Orders";
 import Shop from "../../features/shop/Shop";
-import Contact from "../../features/contact/Contact";
+//import Contact from "../../features/contact/Contact";
 import Feedback from "../../features/contact/Feedback";
 import Term from "../../features/contact/Term";
 //import WhatNews from "../../features/whatnews/WhatNews";
@@ -22,6 +22,8 @@ import RegisterForm from "../../features/account/RegisterForm";
 import RequireAuth from "./RequireAuth";
 import { LoginMainPage } from "../../features/account/LoginMainPage";
 import NewsList from "../../features/news/NewsList";
+import CheckOutResult from "../../features/checkOut/CheckOutResult";
+import AdminPage from "../../features/admin/AdminPage";
 
 export const router = createBrowserRouter([
     {
@@ -32,8 +34,7 @@ export const router = createBrowserRouter([
             { path: 'about', element: <AboutPage /> },
             { path: 'privacy', element: <Privacy /> },
             { path: 'orders', element: <Orders /> },
-            { path: 'shop', element: <Shop /> },
-            { path: 'contact', element: <Contact /> },
+            //{ path: 'contact', element: <Contact /> },
             { path: 'cart', element: <CartPage /> },
             { path: 'feedback', element: <Feedback /> },
             { path: 'term-of-use', element: <Term /> },
@@ -44,6 +45,8 @@ export const router = createBrowserRouter([
             { path: 'login-main', element: <LoginMainPage /> },
             { path: 'login', element: <LoginForm /> },
             { path: 'register', element: <RegisterForm /> },
+            { path: 'checkoutResult', element: <CheckOutResult /> },
+            { path: 'adminPage', element: <AdminPage /> },
             { path: '*', element: <Navigate replace to='/not-found'/> },
 
             {
@@ -51,6 +54,7 @@ export const router = createBrowserRouter([
                 children: [
                     { path: 'catalog', element: <Catalog /> },
                     { path: 'catalog/:id', element: <ProductDetails /> },
+                    { path: 'shop', element: <Shop /> },
                 ]
             },
             {

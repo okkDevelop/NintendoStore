@@ -1,4 +1,4 @@
-import { createApi } from "@reduxjs/toolkit/query"
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQueryWithErrorHandling } from "../../app/api/baseApi"
 import type { Cart } from "../../app/models/cart";
 import { cartApi } from "../cart/cartApi"

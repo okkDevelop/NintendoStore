@@ -1,4 +1,3 @@
-import { counterSlice } from "../../features/contact/counterReducer";
 import { useSelector, useDispatch } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { catalogApi } from "../../features/catalog/catalogApi";
@@ -7,6 +6,7 @@ import { cartApi } from "../../features/cart/cartApi";
 import { catalogSlice } from "../../features/catalog/catalogSlice";
 import { accountApi } from "../../features/account/accountApi";
 import { checkoutApi } from "../../features/checkOut/checkoutApi";
+import { productCounterSlice } from "../../features/catalog/productCounterReducer";
 
 export const store = configureStore({
     reducer: {
@@ -15,7 +15,7 @@ export const store = configureStore({
         [cartApi.reducerPath]: cartApi.reducer,
         [accountApi.reducerPath]: accountApi.reducer,
         [checkoutApi.reducerPath]: checkoutApi.reducer,
-        counter: counterSlice.reducer,
+        productCounter: productCounterSlice.reducer,
         catalog: catalogSlice.reducer
     },
     middleware: (getDefaultMiddleware) =>

@@ -71,40 +71,5 @@ namespace API.Controllers
 
             return NoContent();
         }
-
-        //[HttpPost("address")]
-        //public async Task<ActionResult> CreateOrUpdateUserAddress(Address address)
-        //{
-        //    var user = await signInManager.UserManager.Users
-        //        .Include(a => a.Address)
-        //        .FirstOrDefaultAsync(u => u.UserName == User.Identity!.Name);
-
-        //    if (user == null)
-        //        return Unauthorized();
-
-        //    user.Address = address;
-
-        //    var result = await signInManager.UserManager.UpdateAsync(user);
-
-        //    if (!result.Succeeded)
-        //        return BadRequest("Problem updating user address");
-
-        //    return Ok(user.Address);
-        //}
-
-        //[Authorize]
-        //[HttpGet("address")]
-        //public async Task<ActionResult<Address>> GetUserAddress()
-        //{
-        //    var address = await signInManager.UserManager.Users
-        //        .Where(u => u.UserName == User.Identity!.Name)
-        //        .Select(u => u.Address)
-        //        .FirstOrDefaultAsync();
-
-        //    if (address == null)
-        //        return NoContent();
-
-        //    return address;
-        //}
     }
 }

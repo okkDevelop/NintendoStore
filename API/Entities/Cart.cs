@@ -46,6 +46,14 @@ namespace API.Entities
                 Items.Remove(itemInCart);
         }
 
+        public void RemoveCart()
+        {
+            Items.Clear();
+
+            ClientSecret = null;
+            PaymentIntentId = null;
+        }
+
         private CartItem? FindItem(int productId) 
         {
             return Items.FirstOrDefault(i => i.ProductId == productId);

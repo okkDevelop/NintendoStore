@@ -89,8 +89,27 @@ export const cartApi = createApi({
                     patchResult.undo();
                 }    
             }
+        }),
+        clearCart: builder.mutation<void, void>({
+            query: () => ({
+                url: 'cart/clear',
+                method: 'DELETE'
+            }),
+            onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
+                const patchResult = dispatch(
+                    cartApi.util.updateQueryData('fetchCart', undefined, (draft) => {
+                        draft.items = [];
+                    })
+                );
+                try {
+                    await queryFulfilled;
+                } catch (error) {
+                    console.log('Failed to clear cart:', error);
+                    patchResult.undo();
+                }
+            }
         })
     })
 })
 
-export const { useFetchCartQuery, useAddCartItemMutation, useRemoveCartItemMutation } = cartApi;
+export const { useFetchCartQuery, useAddCartItemMutation, useRemoveCartItemMutation, useClearCartMutation } = cartApi;
