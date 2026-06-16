@@ -24,6 +24,8 @@ import { LoginMainPage } from "../../features/account/LoginMainPage";
 import NewsList from "../../features/news/NewsList";
 import CheckOutResult from "../../features/checkOut/CheckOutResult";
 import AdminPage from "../../features/admin/AdminPage";
+import AddProductPage from "../../features/admin/AddProductPage";
+import ProductModifyPage from "../../features/admin/ProductModifyPage";
 
 export const router = createBrowserRouter([
     {
@@ -47,6 +49,8 @@ export const router = createBrowserRouter([
             { path: 'register', element: <RegisterForm /> },
             { path: 'checkoutResult', element: <CheckOutResult /> },
             { path: 'adminPage', element: <AdminPage /> },
+            { path: 'addProduct', element: <AddProductPage /> },
+            { path: 'modifyProduct', element: <ProductModifyPage /> },
             { path: '*', element: <Navigate replace to='/not-found'/> },
 
             {

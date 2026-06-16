@@ -10,7 +10,8 @@ export default function Catalog() {
     const dispatch = useAppDispatch();
     const currentIndex = useAppSelector((state) => state.catalog.loadedIndex);
 
-    if (isLoading || !data) return <h2>Loading...</h2>
+    if (isLoading || !data)
+        return <h2>Loading...</h2>
 
     return(
         <div className="w-auto flex flex-col items-center justify-center gap-5">

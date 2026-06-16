@@ -1,4 +1,4 @@
-import { Link as LinkIcon } from 'lucide-react';
+import { FileUser, Link as LinkIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 
@@ -12,14 +12,16 @@ export default function B_NavBar() {
     return (
         <div className="w-full h-auto flex flex-col items-center justify-center gap-10">
             {/*red nintendo bar*/}
-            <div className="w-full h-40 bg-red-600
-                    flex item-center justify-center"
+            <Link
+                to=""
+                className="w-full h-40 bg-red-600
+                    flex item-center justify-center cursor-pointer"
             >
                 <img src="https://1000logos.net/wp-content/uploads/2017/03/Nintendo-Logo-1983.png" />
-            </div>
+            </Link>
 
-            <div className="w-full max-w-370 h-auto grid grid-cols-4 gap-y-10 px-4">
-                <div className="w-full h-75 px-5
+            <div className="w-full max-w-370 h-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-10 px-4">
+                <div className="w-full h-full min-h-80 px-5
                         flex flex-col gap-5
                         border-l border-gray-300"
                 >
@@ -45,7 +47,7 @@ export default function B_NavBar() {
                     </div>
                 </div>
 
-                <div className="w-full h-75 px-5
+                <div className="w-full h-full min-h-80 px-5
                         flex flex-col gap-5
                         border-l border-gray-300"
                 >
@@ -103,7 +105,7 @@ export default function B_NavBar() {
                     </div>
                 </div>
 
-                <div className="w-full h-75 px-5
+                <div className="w-full h-full min-h-80 px-5
                         flex flex-col gap-5
                         border-l border-gray-300"
                 >
@@ -143,7 +145,7 @@ export default function B_NavBar() {
                 </div>
 
 
-                <div className="w-full h-75 px-5
+                <div className="w-full h-full min-h-80 px-5
                         flex flex-col gap-5
                         border-l border-gray-300"
                 >
@@ -205,7 +207,7 @@ export default function B_NavBar() {
                     </div>
                 </div>
 
-                <div className="w-full h-75 px-5
+                <div className="w-full h-full min-h-80 px-5
                         flex flex-col gap-5
                         border-l border-gray-300"
                 >
@@ -231,7 +233,7 @@ export default function B_NavBar() {
                     </div>
                 </div>
 
-                <div className="w-full h-75 px-5
+                <div className="w-full h-full min-h-80 px-5
                         flex flex-col gap-5
                         border-l border-gray-300"
                 >
@@ -261,7 +263,7 @@ export default function B_NavBar() {
                     </div>
                 </div>
 
-                <div className="w-full h-75 px-5
+                <div className="w-full h-full min-h-80 px-5
                         flex flex-col gap-5
                         border-l border-gray-300"
                 >
@@ -287,7 +289,7 @@ export default function B_NavBar() {
                     </div>
                 </div>
 
-                <div className="w-full h-75 px-5
+                <div className="w-full h-full min-h-80 px-5
                         flex flex-col gap-5
                         border-l border-gray-300"
                 >
@@ -321,20 +323,35 @@ export default function B_NavBar() {
             </div>
 
             {/*social media panel*/}
-            <div className="flex items-center justify-between h-30 w-full">
-                <div className="group flex items-center justify-between h-full w-80 p-8">
+            <div className="w-full h-auto flex items-center justify-between">
+                <div className="w-80 h-full group flex items-center justify-start gap-10 p-8">
                     <a
                         href="https://www.linkedin.com/in/zheng-kai-oon-65471123b/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white hover:text-red-400 transition-all duration-300 hover:scale-125 cursor-pointer"
+                        className="text-white cursor-pointer"
                     >
-                        <LinkIcon className="text-black" size={24} />
+                        <LinkIcon className="text-black" size={30} />
+                    </a>
+                    <a
+                        href="/OonZhengKai_Resume.pdf"
+                        download="OonZhengKai_Resume.pdf"
+                        className="text-gray-800 cursor-pointer"
+                    >
+                        <FileUser size={30} />
                     </a>
                 </div>
 
-                <div className="h-full w-50">
-                </div>
+                <a
+                    href="https://caru.bbbprograms.org/seal/Confirmation/1514703882"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                >
+                    <img
+                        src="https://caru.bbbprograms.org/seal/GetSeal/1514703882"
+                        className="h-full w-50 object-contain cursor-pointer">
+                    </img>
+                </a>
             </div>
 
             {/*contact panel*/}

@@ -1,24 +1,22 @@
-import { Heart, GamepadDirectional } from 'lucide-react';
+import { GamepadDirectional } from "lucide-react";
 import type { Product } from "../../app/models/product";
-import { Link } from 'react-router-dom';
 
 type Props =
-{
-    product: Product;
-}
+    {
+        product: Product;
+        onSelect: (product: Product) => void;
+        isSelected: boolean;
+    }
 
-//const typeIcons: Record<string, JSX.Element> = {
-//    "Games": <GamepadDirectional size={18} />,
-//    "Console": <Monitor size={18} />,
-//    "Accessories": <Headphones size={18} />,
-//    "Default": <Package size={18} /> // Fallback icon
-//};
-
-export default function ProductCard({ product }: Props) {
+export default function AdminProductCard({ product, onSelect, isSelected }: Props) {
     return (
-        <Link to={`/catalog/${product.id}`}
-            className="group w-auto lg:max-w-120 xl:max-w-60 rounded-md bg-white 
-                outline outline-gray-300">
+        <button
+            type="button"
+            onClick={() => onSelect(product)}
+            className={`group w-auto rounded-md bg-white outline outline-2 transition-all 
+                ${isSelected ? "outline-red-500 shadow-lg" : "outline-gray-300"} 
+                cursor-pointer`}
+        >
             <div className="flex h-auto w-full items-center justify-center overflow-hidden bg-white">
                 <img className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-500"
                     src={product.pictureUrl}
@@ -35,12 +33,8 @@ export default function ProductCard({ product }: Props) {
                         <GamepadDirectional className="text-black fill-black" size={18} />
                         <p className="mt-auto text-sm text-sm text-gray-700">{product.type}</p>
                     </div>
-
-                    <div>
-                        <Heart className="text-red-500 hover:fill-red-500" size={26} />
-                    </div>
                 </div>
             </div>
-        </Link>
+        </button>
     )
 }

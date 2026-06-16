@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Play, Pause } from 'lucide-react';
+import { Play, Pause, Menu, Heart, Search, ShoppingCart, UserRound } from 'lucide-react';
 import FeaturesCard from '../catalog/FeaturesCard';
 import CharactersCard from '../catalog/CharactersCard';
 import { Link } from 'react-router-dom';
@@ -39,35 +39,43 @@ const heroContents = [
 const characterContents = [
     {
         title: 'Super Mario',
-        img: 'https://static.vecteezy.com/system/resources/previews/013/113/508/non_2x/the-illustration-of-super-super-mario-mario-free-vector.jpg',
+        img: 'https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/Character%20Portals/1600x1600_NCOM_Home_Characters_Mario',
+        bgImg: 'https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,h_300,w_300/dpr_2.0/ncom/en_US/merchandising/mario-bg'
     },
     {
         title: 'The Legend of Zelda',
-        img: 'https://imgcdn.stablediffusionweb.com/2024/10/27/bfbb2b5a-effb-471d-acf5-02ef9b6973e5.jpg',
+        img: 'https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/Character%20Portals/The%20Legend%20of%20Zelda/1600x1600_character',
+        bgImg: 'https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,h_300,w_300/dpr_2.0/ncom/en_US/merchandising/Character%20Portals/The%20Legend%20of%20Zelda/1600x1600_background_02'
     },
     {
         title: 'Splatoon',
-        img: 'https://splatoon.nintendo.com/base/images/share-tw.jpg',
+        img: 'https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/Character%20Portals/Ncom_CharacterRail_1600x1600_Splatoon_character_v2',
+        bgImg: 'https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,h_300,w_300/dpr_2.0/ncom/en_US/merchandising/Character%20Portals/Ncom_CharacterRail_1600x1600_Splatoon_BG'
     },
     {
         title: 'Kirby',
-        img: 'https://cdn.wikirby.com/thumb/f/f9/KSA_Tip_Image_Capture_Button.png/250px-KSA_Tip_Image_Capture_Button.png',
+        img: 'https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/Character%20Portals/1600x1600_NCOM_Home_Characters_Kirby',
+        bgImg: 'https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,h_300,w_300/dpr_2.0/ncom/en_US/merchandising/Character%20Portals/1600x1600_NCOM_Home_Characters_Kirby_BG'
     },
     {
         title: 'Pikmin',
-        img: 'https://play.nintendo.com/images/PLAY_6760_Spring_Poll_2025_1x1_1edSazT.a25bebd1.67f98f7b58b63e27.jpg',
+        img: 'https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Character-Pikmin_v02',
+        bgImg: 'https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,h_300,w_300/dpr_2.0/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Background-Pikmin_v02'
     },
     {
         title: 'Animal Crossing',
-        img: 'https://assets.nintendo.eu/image/private/f_auto/q_auto/v1773273987/akfqabu9nsgk6gti20zq.jpg',
+        img: 'https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Character-AnimalCrossing_v01',
+        bgImg: 'https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,h_300,w_300/dpr_2.0/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Background-AnimalCrossing'
     },
     {
         title: 'Metroid',
-        img: 'https://assets.nintendo.com.au/image/upload/f_auto,q_auto/NAL/Migration/MetroidPrime4Beyond/1x1_NSwitch2_MetroidPrime4BeyondNS2Ed_S2Bar.jpg',
+        img: 'https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Character-Metroid_v01',
+        bgImg: 'https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,h_300,w_300/dpr_2.0/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Background-Metroid_v01'
     },
     {
         title: 'Pokémon',
-        img: 'https://4kwallpapers.com/images/wallpapers/pikachu-pokemon-1280x1280-10906.png',
+        img: 'https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Character-Pokemon_v01',
+        bgImg: 'https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,h_300,w_300/dpr_2.0/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Background-Pokemon_v01'
     }
 ]
 
@@ -111,7 +119,7 @@ export default function HomePage() {
                             <img
                                 src={content.image}
                                 alt="Hero Visual"
-                                className="w-full h-auto object-contain cursor-pointer"
+                                className="w-full max-w-full h-auto object-contain cursor-pointer"
                             />
 
                             <label className="w-auto h-auto mx-8
@@ -183,35 +191,61 @@ export default function HomePage() {
 
             <NewsList></NewsList>
 
-            {/* ===== NEWS PANEL AREA ===== */}
-            <div className="h-100 w-full bg-white p-5">
-                <div className="w-[90%] max-w-[1200px] h-auto mx-auto flex flex-col justify-center gap-8 bg-white py-10">
-                    <h2 className="w-full text-3xl font-bold text-gray-600">News</h2>
-                </div>
-            </div>
-            {/* ^^^^^ NEWS PANEL AREA ^^^^^ */}
+            {/*<div className="h-100 w-full bg-white p-5">*/}
+            {/*    <div className="w-[90%] max-w-[1200px] h-auto mx-auto flex flex-col justify-center gap-8 bg-white py-10">*/}
+            {/*        <h2 className="w-full text-3xl font-bold text-gray-600">News</h2>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
 
-            <div className="mx-10 border-b-[1px] border-gray-200"></div>
-            {/* ===== CHARACTERS PANEL AREA ===== */}
-            <div className="w-[90%] max-w-[1200px] h-auto mx-auto flex flex-col justify-center gap-8 bg-white py-10">
-                <h2 className="w-full text-3xl font-bold text-gray-600">Character</h2>
-                <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+            <div className="w-auto max-w-300 h-auto py-10 px-5
+                    flex flex-col items-center justify-center gap-5
+                    border-b-1 border-gray-200"
+            >
+                <h2
+                    className="w-full h-auto 
+                    text-3xl text-left text-gray-700 font-bold"
+                >
+                    Characters
+                </h2>
+
+                <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-5">
                     {characterContents.map((content, index) => (
                         <CharactersCard
                             key={index}
                             title={content.title}
                             img={content.img}
+                            bgImg={content.bgImg}
                         />
                     ))}
                 </div>
             </div>
             {/* ^^^^^ CHARACTERS PANEL AREA ^^^^^ */}
-            <div className="mx-10 border-b-[1px] border-gray-200"></div>
-            {/* ===== PRODUCT CARD PANEL AREA ===== */}
-            <div className="h-100 w-full bg-white p-5">Product Card
 
+            <div className="w-auto max-w-300 h-auto py-10 px-5
+                    flex flex-col items-center justify-center gap-5
+                    border-b-1 border-gray-200"
+            >
+                <h2
+                    className="w-full h-auto 
+                    text-3xl text-left text-gray-700 font-bold"
+                >
+                    Digital best sellers
+                </h2>
+
+                <h2
+                    className="w-full h-auto 
+                    text-3xl text-left text-gray-700 font-bold"
+                >
+                    Digital new releases
+                </h2>
+
+                <h2
+                    className="w-full h-auto 
+                    text-3xl text-left text-gray-700 font-bold"
+                >
+                    Recently viewed
+                </h2>
             </div>
-            {/* ^^^^^ PRODUCT CARD PANEL AREA ^^^^^ */}
         </div>
     )
 }

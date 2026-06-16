@@ -1,15 +1,24 @@
 type CharacterDetails = {
     title: string;
     img: string;
+    bgImg: string;
 }
 
-export default function CharactersCard({ title, img}: CharacterDetails) {
+export default function CharactersCard({ title, img, bgImg }: CharacterDetails) {
     return (
-        <div className="group h-80 w-70 rounded-lg bg-white">
-            <div className="relative h-70 w-full rounded-lg overflow-hidden cursor-pointer">
-                <img className="h-full w-full object-cover hover:scale-110 transition-transform duration-500" src={img} />
+        <div className="group h-auto md:max-h-74 w-full rounded-lg flex flex-col gap-1">
+            <div className="w-full h-auto relative rounded-lg overflow-hidden cursor-pointer">
+                <img
+                    className="w-full h-full object-cover transition-transform duration-200 scale-115 group-hover:scale-100"
+                    src={bgImg}
+                />
+
+                <img
+                    className="absolute top-0 left-0 w-full h-full object-cover z-10 transition-transform duration-200 group-hover:scale-110"
+                    src={img}
+                />
             </div>
-            <h3 className="flex items-center h-10 w-full text-left text-xl text-gray-700 font-bold">{title}</h3>
+            <span className="w-full h-auto flex items-center text-2xl text-gray-700 font-bold">{title}</span>
         </div>
     )
 }

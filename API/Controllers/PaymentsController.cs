@@ -42,36 +42,3 @@ namespace API.Controllers
         }
     }
 }
-
-//[Authorize]
-//[HttpPost]
-//public async Task<ActionResult<CartDto>> CreateOrUpdatePaymentIntent()
-//{
-//    var cart = await context.Carts.GetCartWithItems(Request.Cookies["cartId"]);
-
-//    if (cart == null)
-//        return BadRequest("Problem with the cart");
-
-//    var intent = await paymentService.CreateOrUpdatePaymentIntent(cart);
-
-//    if (intent.Status == "succeeded")
-//    {
-//        intent
-//            }
-
-//    if (intent == null)
-//        return BadRequest("Problem creating payment intent");
-
-//    cart.PaymentIntentId ??= intent.Id;
-//    cart.ClientSecret ??= intent.ClientSecret;
-
-//    if (context.ChangeTracker.HasChanges())
-//    {
-//        var result = await context.SaveChangesAsync() > 0;
-
-//        if (!result)
-//            return BadRequest("Problem updateing cart with intent");
-//    }
-
-//    return cart.ToDto();
-//}

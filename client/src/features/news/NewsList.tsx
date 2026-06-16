@@ -1,9 +1,15 @@
 export default function NewsList() {
     return (
-        <div className="w-full max-w-7xl mx-auto px-4 py-8
-                        grid grid-cols-1 lg:grid-cols-4 gap-8 items-stretch"
+        <div className="w-auto max-w-300 h-auto py-10 px-5
+                    flex flex-col items-center justify-center gap-5
+                    border-b-1 border-gray-200"
         >
-            NewList Panel
+            <h2
+                className="w-full h-auto 
+                    text-3xl text-left text-gray-700 font-bold"
+            >
+                News
+            </h2>
         </div>
     )
 }

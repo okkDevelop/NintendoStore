@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, User, Compass, Handbag, ShieldQuestionMark, Heart, Flag, GraduationCap, MessageSquareText, Smartphone, Star, BrickWall, GamepadDirectional, Gamepad2, PersonStanding, Shirt, Tag, Cog, SquareM, SquareParking, UserKey, Wrench } from 'lucide-react';
+import { Search, ShoppingCart, User, Compass, Handbag, ShieldQuestionMark, Heart, Flag, GraduationCap, MessageSquareText, Smartphone, Star, BrickWall, GamepadDirectional, Gamepad2, PersonStanding, Shirt, Tag, Cog, SquareM, SquareParking, UserKey, Wrench, Menu, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useFetchCartQuery } from '../../features/cart/cartApi';
 import UserMenu from './UserMenu';
@@ -26,16 +26,20 @@ export default function NavBar() {
 
 
     return (
-        <div className="relative z-50">
-            <div className="relative flex h-16 bg-white z-50 border-b-1 border-gray-200">
-                <Link to="/" className="flex h-full items-center bg-red-500 px-2 text-xl text-white">
+        <div className="w-full h-auto flex items-center justify-center z-50">
+            <div className="w-full relative flex h-16 bg-white z-50 
+                    
+                    border-b-1 border-gray-200"
+            > {/*hidden lg:block*/}
+                <Link
+                    to="/"
+                    className="flex h-full items-center bg-red-500 px-2 text-xl text-white">
                     <img className="h-full w-full" src="https://1000logos.net/wp-content/uploads/2017/03/Nintendo-Logo-1983.png" />
                 </Link>
 
                 <div className="flex flex-1 items-center justify-between bg-white px-8">
                     <div>
-                        <div className="hidden md:flex gap-8 font-bold text-gray-700">
-
+                        <div className="md:flex gap-8 font-bold text-gray-700">
                             <button
                                 onClick={() => setExplorePanelOpen(!isExplorePanelOpen)}
                                 className={`flex items-center gap-2 cursor-pointer
@@ -172,7 +176,7 @@ export default function NavBar() {
                 <div className="w-auto h-auto py-6 border-b border-gray-200
                         flex flex-row items-center justify-center gap-8">
                     <button className="group w-auto h-auto px-7 py-2 cursor-pointer
-                                 flex flex-row items-center justify-center gap-2
+                                    flex flex-row items-center justify-center gap-2
                                 outline outline-gray-200 shadow-md rounded-full">
                         <MessageSquareText className="text-white fill-red-500" size={30}>
                         </MessageSquareText>
@@ -183,7 +187,7 @@ export default function NavBar() {
                     </button>
 
                     <button className="group w-auto h-auto px-7 py-2 cursor-pointer
-                                 flex flex-row items-center justify-center gap-2
+                                    flex flex-row items-center justify-center gap-2
                                 outline outline-gray-200 shadow-md rounded-full">
                         <Star className="text-white fill-red-500" size={30}>
                         </Star>
@@ -194,7 +198,7 @@ export default function NavBar() {
                     </button>
 
                     <button className="group w-auto h-auto px-7 py-2 cursor-pointer
-                                 flex flex-row items-center justify-center gap-2
+                                    flex flex-row items-center justify-center gap-2
                                 outline outline-gray-200 shadow-md rounded-full">
                         <GraduationCap className="text-white fill-red-500" size={30}>
                         </GraduationCap>
@@ -205,7 +209,7 @@ export default function NavBar() {
                     </button>
 
                     <button className="group w-auto h-auto px-7 py-2 cursor-pointer
-                                 flex flex-row items-center justify-center gap-2
+                                    flex flex-row items-center justify-center gap-2
                                 outline outline-gray-200 shadow-md rounded-full">
                         <Smartphone className="text-white fill-red-500" size={30}>
                         </Smartphone>
@@ -216,7 +220,7 @@ export default function NavBar() {
                     </button>
 
                     <button className="group w-auto h-auto px-5 py-2 cursor-pointer
-                                 flex flex-row items-center justify-center gap-2
+                                    flex flex-row items-center justify-center gap-2
                                 outline outline-gray-200 shadow-md rounded-full">
                         <BrickWall className="text-white fill-red-500" size={25}>
                         </BrickWall>
@@ -542,6 +546,46 @@ export default function NavBar() {
                 >
                 </div>
             )}
+
+            <div className="w-110 h-15 bg-white rounded-full px-10
+                text-gray-900
+                flex flex-row items-center justify-between 
+                shadow-2xl
+                fixed bottom-5 z-50 block lg:hidden"
+            >
+                <button
+                    type="button"
+                    className="w-auto h-auto cursor-pointer hover:text-red-600 transition duration-300"
+                >
+                    <Menu size={30} ></Menu>
+                </button>
+                <button
+                    type="button"
+                    className="w-auto h-auto cursor-pointer hover:text-red-600 transition duration-300"
+                >
+                    <Heart size={30}></Heart>
+                </button>
+
+                <div className="w-15 h-15 bg-red-500 rounded-full
+                    flex items-center justify-center text-white
+                    relative -top-2"
+                >
+                    <Search size={40}></Search>
+                </div>
+
+                <Link   
+                    to="cart"
+                    className="w-auto h-auto cursor-pointer hover:text-red-600 transition duration-300"
+                >
+                    <ShoppingCart size={30}></ShoppingCart>
+                </Link>
+                <button
+                    type="button"
+                    className="w-auto h-auto cursor-pointer hover:text-red-600 transition duration-300"
+                >
+                    <UserRound size={30}></UserRound>
+                </button>
+            </div>
         </div>
     )
 }
