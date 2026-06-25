@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Play, Pause, Menu, Heart, Search, ShoppingCart, UserRound } from 'lucide-react';
-import FeaturesCard from '../catalog/FeaturesCard';
+import { Play, Pause, MessageSquareText } from 'lucide-react';
+//import FeaturesCard from '../catalog/FeaturesCard';
 import CharactersCard from '../catalog/CharactersCard';
 import { Link } from 'react-router-dom';
 import NintendoTodayPanel from './NintendoTodayPanel';
@@ -12,27 +12,31 @@ import NewsList from '../news/NewsList';
 const heroContents = [
     {
         description: "Discover a world of quirky creatures-available 5/21",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1100/ncom/en_US/merchandising/center-stage-stories/2026/03-March/Yoshi's%20MB/2880x900-YMB-Static",
-        previewImg: "https://assets.nintendo.com/image/upload/q_auto:best/f_auto/c_fill,h_56,w_56/dpr_1.0/ncom/en_US/merchandising/center-stage-stories/2026/03-March/Yoshi's%20MB/96x96-YMB-Static",
-        colorTheme: "green-500"
-    },
-    {
-        description: "Pre-order now! Blast off on a high-octance adventure with Fox McCloud-available 6/25",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1100/ncom/en_US/merchandising/center-stage-stories/2026/05-May/SF/d-ncom-cs-56-static",
-        previewImg: "https://assets.nintendo.com/image/upload/q_auto:best/f_auto/c_fill,h_56,w_56/dpr_1.0/ncom/en_US/merchandising/center-stage-stories/2026/05-May/SF/ncom-cs-56-thumb",
+        desktopImg: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1100/ncom/en_US/merchandising/center-stage-stories/2026/05-May/SF/d-ncom-cs-starfox-static-en",
+        mobileImg: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_700/ncom/en_US/merchandising/center-stage-stories/2026/05-May/SF/m-ncom-cs-starfox-static-en",
+        IconImg: "https://assets.nintendo.com/image/upload/q_auto:best/f_auto/c_fill,h_56,w_56/dpr_1.0/ncom/en_US/merchandising/center-stage-stories/2026/05-May/SF/ncom-cs-56-thumb",
         colorTheme: "red-500"
     },
     {
-        description: "Help your Mii creations live their best lives-available now!",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1100/ncom/en_US/merchandising/center-stage-stories/2026/01-January/TL/TomodachiLife-2880x900-Centerstage-DT-STATIC_v05",
-        previewImg: "https://assets.nintendo.com/image/upload/q_auto:best/f_auto/c_fill,h_56,w_56/dpr_1.0/ncom/en_US/merchandising/center-stage-stories/2026/01-January/TL/TomodachiLife-512x512-Thumbnail_v01",
-        colorTheme: "orange-500"
+        description: "Pre-order now! Test your tempo in absurd rhythm games-avaialble 7/2.",
+        desktopImg: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1100/ncom/en_US/merchandising/center-stage-stories/2026/06-June/Rhythm%20Heaven%20Groove/Desktop/D-RhythmHeavenGroove-Static",
+        mobileImg: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1000/ncom/en_US/merchandising/center-stage-stories/2026/06-June/Rhythm%20Heaven%20Groove/Mobile/M-RhythmHeavenGroove-Static",
+        IconImg: "https://assets.nintendo.com/image/upload/q_auto:best/f_auto/c_fill,h_56,w_56/dpr_1.0/ncom/en_US/merchandising/center-stage-stories/2026/06-June/Rhythm%20Heaven%20Groove/rhg-thumb-01",
+        colorTheme: "purple-200"
     },
     {
-        description: "Unravel one of history's greatest mysteries-available now",
-        image: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1100/Nintendo%20Direct/Rjfjv9m8OTpi/relic/d_paused",
-        previewImg: "https://assets.nintendo.com/image/upload/q_auto:best/f_auto/c_fill,h_56,w_56/dpr_1.0/Nintendo%20Direct/Rjfjv9m8OTpi/relic/thumb",
-        colorTheme: "stone-500"
+        description: "Pre-order now! Hunt for treasyre in a single-player-focused adventure-available 7/23",
+        desktopImg: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1100/ncom/en_US/merchandising/center-stage-stories/2026/04%20-%20April/SR0421/2880x900-SR-Static",
+        mobileImg: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1000/ncom/en_US/merchandising/center-stage-stories/2026/04%20-%20April/SR0421/780x840-SR-Static",
+        IconImg: "https://assets.nintendo.com/image/upload/q_auto:best/f_auto/c_fill,h_56,w_56/dpr_1.0/ncom/en_US/merchandising/center-stage-stories/2026/04%20-%20April/SR0421/96x96-SR-Thumb",
+        colorTheme: "green-500"
+    },
+    {
+        description: "Experience The World's Game like never before in EA SPORTS FC 26.",
+        desktopImg: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1100/ncom/en_US/merchandising/center-stage-stories/2026/06-June/FC26-June2026/2880x900-FC26-static",
+        mobileImg: "https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1000/ncom/en_US/merchandising/center-stage-stories/2026/06-June/FC26-June2026/780x840-FC26-static",
+        IconImg: "https://assets.nintendo.com/image/upload/q_auto:best/f_auto/c_fill,h_56,w_56/dpr_1.0/ncom/en_US/merchandising/center-stage-stories/2026/06-June/FC26-June2026/96x96-FC26",
+        colorTheme: "black"
     }
 ]
 
@@ -106,28 +110,43 @@ export default function HomePage() {
     return (
         <div className="w-full flex flex-col items-center justify-center bg-white">
             {/* ===== HERO PANEL AREA ===== */}
-            <div className="flex flex-col border-b-1 border-gray-200">
+            <section className="flex flex-col border-b-1 border-gray-200">
                 <div
-                    className="flex flex-row w-full transition-transform duration-500"
+                    className="flex flex-row w-screen transition-transform duration-500"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
                     {heroContents.map((content, index) => (
                         <div
                             key={index}
-                            className="w-full h-auto flex flex-col flex-shrink-0 gap-5"
+                            className="w-screen h-auto flex flex-col flex-shrink-0 gap-5"
                         >
-                            <img
-                                src={content.image}
-                                alt="Hero Visual"
-                                className="w-full max-w-full h-auto object-contain cursor-pointer"
-                            />
-
-                            <label className="w-auto h-auto mx-8
-                                        text-2xl md:text-3xl hover:text-red-500 font-bold text-gray-800
+                            <div className="flex flex-col hidden lg:block">
+                                <img
+                                    src={content.desktopImg}
+                                    alt="Hero Visual"
+                                    className="w-full object-contain cursor-pointer hidden lg:block"
+                                />
+                                <h2 className="w-auto h-auto mx-8
+                                        text-2xl md:text-3xl hover:text-red-600 font-bold text-gray-700
                                         cursor-pointer transition-all duration-500"
-                            >
-                                {content.description}
-                            </label>
+                                >
+                                    {content.description}
+                                </h2>
+                            </div>
+
+                            <div className="relative flex flex-col items-center justify-center block lg:hidden">
+                                <img
+                                    src={content.mobileImg}
+                                    alt="Hero Visual"
+                                    className="w-full object-contain block lg:hidden cursor-pointer"
+                                />
+                                <h2 className="absolute bottom-5 w-full h-auto px-5
+                                        text-center text-2xl md:text-3xl hover:text-red-600 font-bold text-white
+                                        cursor-pointer transition-all duration-500"
+                                >
+                                    {content.description}
+                                </h2>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -157,17 +176,17 @@ export default function HomePage() {
                             } }
                         >
                             <img
-                                src={content.previewImg}
+                                src={content.IconImg}
                                 className="rounded-lg object-contain"
                             />
                         </button>
                     ))}
                 </div>
-            </div>
+            </section>
             {/* ^^^^^ HERO PANEL AREA ^^^^^ */}
 
             {/* ===== FEATURED PANEL AREA ===== */}
-            <div className="w-[100%] max-w-[1150px] h-auto mx-auto flex flex-col justify-center gap-8 py-10 border-b-1 border-gray-200">
+            <section className="w-[100%] max-w-[1150px] h-auto mx-auto flex flex-col justify-center gap-8 py-10 border-b-1 border-gray-200">
                 <h2 className="w-full text-3xl font-bold text-gray-700">Features</h2>
                 <div className="flex items-center justify-center gap-4">
                     {/*{featuresContents.map((content, index) => (*/}
@@ -178,24 +197,31 @@ export default function HomePage() {
                     {/*    />*/}
                     {/*))}*/}
                 </div>
-            </div>
+            </section>
             {/* ^^^^^ FEATURED PANEL AREA ^^^^^ */}
 
-            <NintendoTodayPanel></NintendoTodayPanel>
+            <NintendoTodayPanel/>
+            <OnlineStorePanel/>
+            <NintendoSwitch2Panel/>
+            <ExpansionPack/>
 
-            <NintendoSwitch2Panel></NintendoSwitch2Panel>
-
-            <OnlineStorePanel></OnlineStorePanel>
-
-            <ExpansionPack></ExpansionPack>
-
-            <NewsList></NewsList>
-
-            {/*<div className="h-100 w-full bg-white p-5">*/}
-            {/*    <div className="w-[90%] max-w-[1200px] h-auto mx-auto flex flex-col justify-center gap-8 bg-white py-10">*/}
-            {/*        <h2 className="w-full text-3xl font-bold text-gray-600">News</h2>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className="w-full max-w-300 h-auto py-10 px-5
+                        flex flex-col items-center justify-center gap-10
+                        border-b-1 border-gray-200"
+            >
+                <NewsList></NewsList>
+                <div className="w-full flex justify-start">
+                    <Link
+                        to="newsPage"
+                        className="w-full lg:w-80 text-white text-lg font-bold bg-red-600 rounded-lg px-7 py-3
+                           flex flex-row items-center justify-center gap-3
+                           hover:bg-red-700 hover:scale-105 transition duration-300"
+                    >
+                        <MessageSquareText />
+                        <span>See all news articles</span>
+                    </Link>
+                </div>
+            </div>
 
             <div className="w-auto max-w-300 h-auto py-10 px-5
                     flex flex-col items-center justify-center gap-5
@@ -239,12 +265,12 @@ export default function HomePage() {
                     Digital new releases
                 </h2>
 
-                <h2
-                    className="w-full h-auto 
-                    text-3xl text-left text-gray-700 font-bold"
-                >
-                    Recently viewed
-                </h2>
+                {/*<h2*/}
+                {/*    className="w-full h-auto */}
+                {/*    text-3xl text-left text-gray-700 font-bold"*/}
+                {/*>*/}
+                {/*    Recently viewed*/}
+                {/*</h2>*/}
             </div>
         </div>
     )

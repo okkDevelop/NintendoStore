@@ -1,6 +1,6 @@
 export default function NintendoTodayPanel() {
     return (
-        <div className="w-auto max-w-295 h-auto py-10 px-5
+        <section className="w-auto max-w-295 h-auto py-10 px-5
                     flex flex-col items-center justify-center gap-5
                     border-b-1 border-gray-200"
         >
@@ -45,6 +45,6 @@ export default function NintendoTodayPanel() {
             >
                 Nintendo Account, compatible smart device and persistent internet connection required. Data charges may apply. Requires iOS 16.0 or later. Requires Android 10.0 or later.
             </label>
-        </div>
+        </section>
     )
 }

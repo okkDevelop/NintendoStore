@@ -11,12 +11,12 @@ export default function OnlineStorePanel() {
             <img
                 className="w-full h-auto block md:hidden rounded-lg cursor-pointer"
                 alt="Nintendo Switch 2 Mobile Banner"
-                src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_800/ncom/en_US/merchandising/Nintendo%20Store%20Banners/1372x640_N.com_Store_banner_refresh_for_Mario_mobile_v3"
+                src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_800/ncom/en_US/merchandising/Nintendo%20Store%20Banners/1372x640-NS-NCOM-Banner"
             />
 
             <img
                 className="w-full rounded-xl cursor-pointer object-contain hidden md:block"
-                src='https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_1200/ncom/en_US/merchandising/Nintendo%20Store%20Banners/4576x704_N.com_Store_banner_refresh_for_Mario_desktop_v3'
+                src='https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_800/ncom/en_US/merchandising/Nintendo%20Store%20Banners/4576x704-NS-NCOM-Banner'
             />
 
             <div className="w-full flex flex-col lg:flex-row items-left lg:items-center justify-left gap-10">

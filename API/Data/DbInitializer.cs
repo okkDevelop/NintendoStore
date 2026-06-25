@@ -1,7 +1,9 @@
 ﻿using API.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using System.Runtime.CompilerServices;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace API.Data
 {
@@ -214,6 +216,58 @@ namespace API.Data
                 };
 
                 context.Products.AddRange(products);
+            }
+
+            if (!context.News.Any()) 
+            {
+                var news = new List<News>
+                { 
+                    new News(
+                            "Nintendo Direct unveils new games and updates for Nintendo Switch 2 and Nintendo Switch including The Legend of Zelda: Ocarina of Time, KINGDOM HEARTS IV, Xenoblade Genesis and more\r\n",
+                            //^^Title
+                            "The latest Nintendo Direct put the spotlight on anticipated games and updated titles coming to the Nintendo Switch 2 and Nintendo Switch systems – as well as some new reveals." +
+                            "\r\n\r\n" +
+                            "The presentation revealed [The Legend of Zelda: Ocarina of Time](/style/red), the return of the critically acclaimed Nintendo 64 classic for a new generation, reborn for Nintendo Switch 2! " +
+                            "Also revealed during the presentation was the return of Disney and Square Enix’s storied action RPG series with [KINGDOM HEARTS IV](/style/gray), " +
+                            "a new beginning for the Xenoblade series with [Xenoblade Genesis](/style/red), the sun-soaked action of [Nintendo Switch Sports Resort](/style/red)," +
+                            " the announcement of an upcoming free update and paid DLC for Pokémon Pokopia, the next chapter in the fun and heartfelt adventure [DELTARUNE](/style/gray)," +
+                            " a closed network test for FromSoftware’s multiplayer action game [The Duskbloods](/style/red)," +
+                            " and a limited-time in-game challenge event happening across [Donkey Kong Bananza](/style/red) and classic Donkey Kong titles available with [Nintendo Switch Online](/style/red)!" +
+                            "\r\n\r\n" +
+                            "Here’s more information about upcoming games highlighted in the presentation. For purchase, pre-order and additional game details, please visit Nintendo Store or Nintendo eShop:" +
+                            "\r\n\r\n" +
+                            "-The Legend of Zelda: Ocarina of Time: The Nintendo 64 classic returns for a new generation in 2026, reborn exclusively for Nintendo Switch 2!" +
+                            "\r\n\r\n" +
+                            "-KINGDOM HEARTS IV: A new installment in the action role-playing series developed and published by Square Enix, " +
+                            "KINGDOM HEARTS IV gives fans a look at some of the characters that protagonist Sora will meet in the mysterious city of Quadratum. Sora will once again journey to realms," +
+                            " where new figures cross his path and new powers awaken his next chapter. KINGDOM HEARTS IV will be available at launch on Nintendo Switch 2.",
+                            //^^Content
+                            "https://assets.nintendo.com/image/upload/q_auto:best/f_auto/dpr_2.0/ncom/en_US/articles/2026/nintendo-direct-6-9-26/ND_THL_PromoAsset_NewsArticle_1920x1080",
+                            //^^Images
+                            NewsType.Events,
+                            //^^Types
+                            new DateTime(2026, 6, 9)
+                            //^^Date
+                        ),
+                        new News(
+                            "Celebrate summer with Flower Crown Decor Pikmin and new features!",
+
+                            "#Celebrate summer with the Midsommar Festival#" +
+                            "\r\n\r\n" +
+                            "Step into the season with the Midsommar Festival event, running from June 1 through June 30!" +
+                            "Inspired by Northern European summer traditions, this event lets you meet Flower Crown Decor Pikmin through event challenges.Complete missions to earn rewards like seedlings, petals, and event items.Take on Mysterious Mushrooms for special rewards during the event!" +
+                            "On weekends—including an extended final weekend—Giant Mysterious Mushrooms will appear, offering even greater rewards when tackled with friends." +
+                            "It’s the perfect time to enjoy longer days, go for a walk, and grow your Pikmin collection with seasonal flair.",
+
+                            "https://assets.nintendo.com/image/upload/q_auto:best/f_auto/dpr_2.0/ncom/en_US/articles/2026/mobile-news-celebrate-summer-with-flower-crown-decor-pikmin-and-new-features/Pikmin_Bloom_-_June_2026_Events_-_Hero_Image",
+
+                            NewsType.Events,
+
+                            new DateTime(2026, 6, 5)
+                        )
+                };
+
+                context.News.AddRange(news);
             }
 
             context.SaveChanges();

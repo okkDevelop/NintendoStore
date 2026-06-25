@@ -26,6 +26,10 @@ import CheckOutResult from "../../features/checkOut/CheckOutResult";
 import AdminPage from "../../features/admin/AdminPage";
 import AddProductPage from "../../features/admin/AddProductPage";
 import ProductModifyPage from "../../features/admin/ProductModifyPage";
+import NewsPage from "../../features/news/NewsPage";
+import NewsDetails from "../../features/news/NewsDetails";
+import AddNewsPage from "../../features/admin/AddNewsPage";
+import GamingFeatures from "../../features/general/GamingFeatures";
 
 export const router = createBrowserRouter([
     {
@@ -41,7 +45,6 @@ export const router = createBrowserRouter([
             { path: 'feedback', element: <Feedback /> },
             { path: 'term-of-use', element: <Term /> },
             { path: 'news', element: <NewsList /> },
-            //{ path: '/news/:id', element: <NewsDetails /> },
             { path: 'server-error', element: <ServerError /> },
             { path: 'not-found', element: <NotFound /> },
             { path: 'login-main', element: <LoginMainPage /> },
@@ -51,6 +54,10 @@ export const router = createBrowserRouter([
             { path: 'adminPage', element: <AdminPage /> },
             { path: 'addProduct', element: <AddProductPage /> },
             { path: 'modifyProduct', element: <ProductModifyPage /> },
+            { path: 'newsPage', element: <NewsPage /> },
+            { path: 'newsPage/:slug', element: <NewsDetails /> },
+            { path: 'addNews', element: <AddNewsPage /> },
+            { path: 'gamingFeatures', element: <GamingFeatures /> },
             { path: '*', element: <Navigate replace to='/not-found'/> },
 
             {

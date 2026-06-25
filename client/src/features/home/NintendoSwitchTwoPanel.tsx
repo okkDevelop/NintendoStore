@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function NintendoSwitch2Panel() {
     return (
         <div className="w-auto max-w-295 h-auto py-10 px-5
@@ -7,29 +9,30 @@ export default function NintendoSwitch2Panel() {
             <h2
                 className="w-full h-auto text-3xl font-bold text-gray-600"
             >
-                Nintendo Switch 2
+                Gaming systems
             </h2>
 
             <img
                 className="w-full h-auto block md:hidden rounded-lg cursor-pointer"
                 alt="Nintendo Switch 2 Mobile Banner"
-                src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_500/ncom/en_US/merchandising/Showrooms/NS%20Home%20of%20Mario%20and%20Friends/2026/Homepage%20banners/1530x704_Ncom_homepage_hardware_M"
+                src='https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_700/ncom/en_US/merchandising/Gaming%20Systems%20banner/Nintendo%20Switch%202%20features/NCOM-Home-NS2-section-mobile'
             />
 
             <img
                 className="w-full rounded-xl cursor-pointer object-contain hidden md:block"
                 alt="Nintendo Switch 2 Normal Banner"
-                src='https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_1200/ncom/en_US/merchandising/Showrooms/NS%20Home%20of%20Mario%20and%20Friends/2026/Homepage%20banners/3600x1200_Ncom_homepage_hardware_D'
+                src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_1200/ncom/en_US/merchandising/Gaming%20Systems%20banner/Nintendo%20Switch%202%20features/NCOM-Home-NS2-section-desktop"
             />
             <div
                 className="w-full h-auto 
                     flex flex-col lg:flex-row items-left lg:items-center justify-left gap-7"
             >
-                <label className="font-bold text-xl text-gray-600">
-                    Enjoy ways to play alongside Mario, Peach and many other Mushroom Kingdom friends on the Nintendo Switch 2 system.
-                </label>
+                <span className="font-bold text-xl text-gray-600">
+                    Get to know the Nintendo Switch 2 system
+                </span>
 
-                <button
+                <Link
+                    to="/gamingFeatures"
                     className="w-full h-12 lg:w-45 rounded-lg bg-red-600
                         flex items-center justify-center
                         text-xl text-white font-bold
@@ -37,7 +40,7 @@ export default function NintendoSwitch2Panel() {
                         transition-[transform, background-color] duration-500
                         ease-out cursor-pointer">
                     Learn more
-                </button>
+                </Link>
             </div>
         </div>
     )

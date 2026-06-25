@@ -1,15 +1,26 @@
+import { useFetchAllNewsQuery } from "./newsAPI";
+import NewsCard from "./NewsCard";
+
 export default function NewsList() {
+    const { data, isLoading } = useFetchAllNewsQuery();
+
+    if (isLoading || !data)
+        return <h2>Loading...</h2>
+
     return (
-        <div className="w-auto max-w-300 h-auto py-10 px-5
-                    flex flex-col items-center justify-center gap-5
-                    border-b-1 border-gray-200"
-        >
-            <h2
-                className="w-full h-auto 
-                    text-3xl text-left text-gray-700 font-bold"
-            >
-                News
-            </h2>
+        <div className="w-full h-auto grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {data.map((news, index) => {
+                const isFeatured = index < 2;
+
+                return (
+                    <div
+                        key={news.slug}
+                        className={isFeatured ? "col-span-2" : "col-span-1"}
+                    >
+                        <NewsCard news={news} isFeatured={isFeatured} />
+                    </div>
+                );
+            })}
         </div>
     )
 }

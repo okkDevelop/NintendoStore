@@ -25,6 +25,16 @@ export default function AdminPage() {
             >
                 Modify Product
             </Link>
+            <Link
+                to="/addNews"
+                className="w-50 h-20 rounded-full 
+                    flex items-center justify-center
+                    text-black text-xl 
+                    outline outline-red-500
+                    hover:bg-red-500 transition duration-300"
+            >
+                Add News
+            </Link>
         </div>
     )
 }

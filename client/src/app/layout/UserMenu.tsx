@@ -66,22 +66,22 @@ export default function UserMenu({ user, isPanelOpen, setPanelOpen }: Props) {
                     <Link
                         to="/login-main"
                         onClick={() => {
-                            window.scrollTo(0, 0);
                             setPanelOpen(false);
                         }}
                         className="w-full h-auto rounded-lg bg-red-600
-                                    text-xl text-white font-bold text-center py-2"
+                            text-xl text-white font-bold text-center py-2
+                            hover:bg-red-700 transition duration-300"
                     > Log in
                     </Link>
                     <Link
                         to="/register"
                         onClick={() => {
-                            window.scrollTo(0, 0);
                             setPanelOpen(false);
                         }}
                         className="w-full h-auto rounded-lg bg-white
-                                    text-xl text-red-500 font-bold text-center py-2
-                                    outline outline-1 outline-red-500"
+                            text-xl text-red-500 font-bold text-center py-2
+                            outline outline-1 outline-red-500
+                            hover:bg-red-100 transition duration-300"
                     > Sign up
                     </Link>
                 </>
@@ -143,7 +143,7 @@ export default function UserMenu({ user, isPanelOpen, setPanelOpen }: Props) {
                                     text-lg text-gray-700 font-semibold text-center
                                     outline outline-gray-300"
                 >
-                    <button className="flex flex-row items-center justify-left gap-2">
+                    <button className="flex flex-row items-center justify-left gap-2 cursor-pointer">
                         <NotepadText className="text-red-500" size={20}></NotepadText>
                         <span>Order status</span>
                     </button>

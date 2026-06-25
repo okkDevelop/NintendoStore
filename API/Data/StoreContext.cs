@@ -9,6 +9,7 @@ namespace API.Data
     {
         public required DbSet<Product> Products { get; set; }
         public required DbSet<Cart> Carts { get; set; }
+        public required DbSet<News> News { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

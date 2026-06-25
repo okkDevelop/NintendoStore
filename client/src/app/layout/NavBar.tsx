@@ -27,14 +27,15 @@ export default function NavBar() {
 
     return (
         <div className="w-full h-auto flex items-center justify-center z-50">
-            <div className="w-full relative flex h-16 bg-white z-50 
-                    
+            <div className="w-full relative flex flex-row h-16 bg-white z-50                     
                     border-b-1 border-gray-200"
-            > {/*hidden lg:block*/}
+            >
                 <Link
                     to="/"
                     className="flex h-full items-center bg-red-500 px-2 text-xl text-white">
-                    <img className="h-full w-full" src="https://1000logos.net/wp-content/uploads/2017/03/Nintendo-Logo-1983.png" />
+                    <img className="h-full w-full"
+                        src="https://1000logos.net/wp-content/uploads/2017/03/Nintendo-Logo-1983.png"
+                    />
                 </Link>
 
                 <div className="flex flex-1 items-center justify-between bg-white px-8">
@@ -111,6 +112,18 @@ export default function NavBar() {
                 </div>
             </div>
 
+            {/*<div className="w-full h-10 bg-red-500 block lg:hidden px-3*/}
+            {/*        flex flex-row items-center justify-between"*/}
+            {/*>*/}
+            {/*    <Link*/}
+            {/*        to="/"*/}
+            {/*        className="flex h-full items-center bg-red-500 px-2 text-xl text-white">*/}
+            {/*        <img className="h-full w-full" src="https://1000logos.net/wp-content/uploads/2017/03/Nintendo-Logo-1983.png" />*/}
+            {/*    </Link>*/}
+
+            {/*    <Flag className="hover:text-white transition" size={20} />*/}
+            {/*</div>*/}
+
             <UserMenu
                 user={user}
                 isPanelOpen={isLoginPanelOpen}
@@ -175,16 +188,19 @@ export default function NavBar() {
 
                 <div className="w-auto h-auto py-6 border-b border-gray-200
                         flex flex-row items-center justify-center gap-8">
-                    <button className="group w-auto h-auto px-7 py-2 cursor-pointer
-                                    flex flex-row items-center justify-center gap-2
-                                outline outline-gray-200 shadow-md rounded-full">
+                    <Link
+                        to="newsPage"
+                        className="group w-auto h-auto px-7 py-2 cursor-pointer
+                            flex flex-row items-center justify-center gap-2
+                            outline outline-gray-200 shadow-md rounded-full"
+                    >
                         <MessageSquareText className="text-white fill-red-500" size={30}>
                         </MessageSquareText>
                         <span className="text-md text-gray-700 font-bold 
                                 group-hover:text-red-500 transition duration-200">
                             News and events
                         </span>
-                    </button>
+                    </Link>
 
                     <button className="group w-auto h-auto px-7 py-2 cursor-pointer
                                     flex flex-row items-center justify-center gap-2
@@ -548,9 +564,8 @@ export default function NavBar() {
             )}
 
             <div className="w-110 h-15 bg-white rounded-full px-10
-                text-gray-900
-                flex flex-row items-center justify-between 
-                shadow-2xl
+                text-gray-900 shadow-2xl
+                flex flex-row items-center justify-between                 
                 fixed bottom-5 z-50 block lg:hidden"
             >
                 <button

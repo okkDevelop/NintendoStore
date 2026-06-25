@@ -1,4 +1,4 @@
-import { Heart, GamepadDirectional } from 'lucide-react';
+import { Heart, GamepadDirectional, type LucideIcon, Gamepad2, Cog, Package } from 'lucide-react';
 import type { Product } from "../../app/models/product";
 import { Link } from 'react-router-dom';
 
@@ -7,17 +7,18 @@ type Props =
     product: Product;
 }
 
-//const typeIcons: Record<string, JSX.Element> = {
-//    "Games": <GamepadDirectional size={18} />,
-//    "Console": <Monitor size={18} />,
-//    "Accessories": <Headphones size={18} />,
-//    "Default": <Package size={18} /> // Fallback icon
-//};
+const typeIcons: Record<string, LucideIcon> = {
+    "Games": GamepadDirectional,
+    "Console": Gamepad2,
+    "Acccessories": Cog,
+};
 
 export default function ProductCard({ product }: Props) {
+    const Icon = typeIcons[product.type] || Package;
+
     return (
         <Link to={`/catalog/${product.id}`}
-            className="group w-auto lg:max-w-120 xl:max-w-60 rounded-md bg-white 
+            className="group w-auto lg:max-w-120 xl:max-w-60 rounded-md bg-white overflow-hidden
                 outline outline-gray-300">
             <div className="flex h-auto w-full items-center justify-center overflow-hidden bg-white">
                 <img className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-500"
@@ -32,7 +33,7 @@ export default function ProductCard({ product }: Props) {
 
                 <div className="flex w-full items-center justify-between mt-auto pt-2">
                     <div className="flex items-center gap-2">
-                        <GamepadDirectional className="text-black fill-black" size={18} />
+                        <Icon size={18} className="text-black" />
                         <p className="mt-auto text-sm text-sm text-gray-700">{product.type}</p>
                     </div>
 
