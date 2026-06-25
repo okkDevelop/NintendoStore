@@ -77,7 +77,7 @@ const characterContents = [
         bgImg: 'https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,h_300,w_300/dpr_2.0/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Background-Metroid_v01'
     },
     {
-        title: 'Pokémon',
+        title: 'PokÃ©mon',
         img: 'https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Character-Pokemon_v01',
         bgImg: 'https://assets.nintendo.com/image/upload/q_auto/f_auto/c_fill,h_300,w_300/dpr_2.0/ncom/en_US/merchandising/CREATIVE-1295-CharacterSection-Background-Pokemon_v01'
     }
@@ -173,7 +173,7 @@ export default function HomePage() {
                             outline-2 outline-offset-2`}
                             style={{
                                 outlineColor: currentIndex === index ? `var(--color-${content.colorTheme})` : 'transparent'
-                            } }
+                            }}
                         >
                             <img
                                 src={content.IconImg}
@@ -200,10 +200,10 @@ export default function HomePage() {
             </section>
             {/* ^^^^^ FEATURED PANEL AREA ^^^^^ */}
 
-            <NintendoTodayPanel/>
-            <OnlineStorePanel/>
-            <NintendoSwitch2Panel/>
-            <ExpansionPack/>
+            <NintendoTodayPanel />
+            <OnlineStorePanel />
+            <NintendoSwitch2Panel />
+            <ExpansionPack />
 
             <div className="w-full max-w-300 h-auto py-10 px-5
                         flex flex-col items-center justify-center gap-10
