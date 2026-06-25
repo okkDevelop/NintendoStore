@@ -14,7 +14,7 @@ export default function NavBar() {
     const [isExplorePanelOpen, setExplorePanelOpen] = useState(false);
     const [isShopPanelOpen, setShopPanelOpen] = useState(false);
     const [isSupportPanelOpen, setSupportPanelOpen] = useState(false);
-    const [isSearchPanelOpen, setSearchPanelOpen] = useState(false);
+    //const [isSearchPanelOpen, setSearchPanelOpen] = useState(false);
 
     useEffect(() => {
         if (isLoginPanelOpen || isExplorePanelOpen || isShopPanelOpen || isSupportPanelOpen)
