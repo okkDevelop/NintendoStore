@@ -126,7 +126,7 @@ export default function HomePage() {
                                     alt="Hero Visual"
                                     className="w-full object-contain cursor-pointer hidden lg:block"
                                 />
-                                <h2 className="w-auto h-auto mx-8
+                                <h2 className="w-auto h-auto mx-8 py-5
                                         text-2xl md:text-3xl hover:text-red-600 font-bold text-gray-700
                                         cursor-pointer transition-all duration-500"
                                 >

@@ -101,10 +101,8 @@ export default function GamingFeatures() {
         offset: ["start start", "end end"]
     });
 
-    const textFadeInOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7], [0, 1, 1]);
-    const textFadeInPosition = useTransform(scrollYProgress, [0, 0.4], ["100vh", "50vh"]);
-    //const textFadeInOpacity = useTransform(scrollYProgress, [0, 0.3, 1], [0, 0.8, 1]);
-    //const textFadeInPosition = useTransform(scrollYProgress, [0, 0.2], [400, 100]);
+    const textFadeInOpacity = useTransform(scrollYProgress, [0, 0.3, 1], [0, 0.8, 1]);
+    const textFadeInPosition = useTransform(scrollYProgress, [0, 0.5], ["40vh", "0vh"]);
     const smoothFadeIn = useSpring(textFadeInPosition, { stiffness: 100, damping: 20 });
 
     return (
@@ -344,38 +342,41 @@ export default function GamingFeatures() {
             <Switch2_SA></Switch2_SA>
 
             <section
-                ref={standSectionRef }
-                className="relative w-full h-[100vh] flex items-center justify-center py-10"
+                ref={standSectionRef}
+                className="relative w-full h-[120vh] flex items-center justify-center bg-white overflow-hidden px-6 md:px-12"
             >
-                <img
-                    className="h-80 absolute top-0 right-0 object-contain"
-                    src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_1000/ccb3e8ca3c296e21a8c933e8369031511589d0ef6b079cf5bb3667b09893482c/features/tabletop-mode"
-                />
+                <div className="relative w-full max-w-[1200px] h-full flex flex-col md:flex-row items-center justify-between">
+                    <div className="absolute top-0 right-0 w-[45vw] sm:w-[35vw] md:w-[45vw] max-w-[550px] z-10 pointer-events-none">
+                        <img
+                            className="w-full h-auto object-contain"
+                            src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_1000/ccb3e8ca3c296e21a8c933e8369031511589d0ef6b079cf5bb3667b09893482c/features/tabletop-mode"
+                            alt="Tabletop Mode Overview"
+                        />
+                    </div>
 
-                <div className="relative w-full max-w-450 h-full">
                     <motion.div
-                        className="absolute left-50 w-full min-w-80 max-w-140 h-auto p-5 rounded-lg
-                        flex flex-col items-start justify-center gap-3
-                        text-gray-700 font-bold"
+                        className="w-full md:w-[50%] max-w-[480px] flex flex-col items-start justify-center gap-4 text-gray-700 font-bold z-20"
                         style={{ opacity: textFadeInOpacity, y: smoothFadeIn }}
                     >
-                        <h2 className="text-4xl">
-                            Build-in stand with a freely adjustable viewing angle
+                        <h2 className="text-gray-800 text-3xl leading-normal">
+                            Built-in stand with a freely adjustable viewing angle
                         </h2>
-                        <p className="">
+
+                        <p>
                             Place your Nintendo Switch 2 however you like in tabletop mode using a large, stable stand. With 150 degrees of freedom, you can always find a comfortable viewing angle. Perfect for playing together!
                         </p>
 
                         <img
-                            className="w-full object-contain"
+                            className="w-full object-contain rounded-lg my-1 shadow-sm"
                             src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_600/ccb3e8ca3c296e21a8c933e8369031511589d0ef6b079cf5bb3667b09893482c/features/Features_new_stand"
+                            alt="Stand Detail View"
                         />
 
-                        <p className="">
+                        <p>
                             The top of the system now has a USB-C® port, in addition to one on the bottom. Plug in the included AC adapter and play in tabletop mode while the system charges.
                         </p>
 
-                        <button className="w-40 h-auto rounded-lg text-white text-xl font-bold bg-red-500 px-5 py-3 cursor-pointer">
+                        <button className="w-40 h-auto rounded-lg text-white text-lg font-bold bg-red-500 hover:bg-red-600 active:scale-[0.98] transition-all px-5 py-3 cursor-pointer mt-1 shadow-md">
                             Learn more
                         </button>
                     </motion.div>

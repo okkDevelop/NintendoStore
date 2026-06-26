@@ -1,5 +1,5 @@
-import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function Switch2_SA() {
     const sectionRef = useRef(null);
